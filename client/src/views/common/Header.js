@@ -27,17 +27,23 @@ function Header(props) {
 						<ul className="navbar-nav ml-auto font-weight-bold">
 							{props.user ? (
 								<>
-									<li
-										className="nav-item"
-										style={{ color: "white" }}
-									>
-										{props.user.name}
+									<li className="nav-item">
+										<NavLink
+											to="/profile"
+											activeClassName="active"
+											className="nav-link text-white"
+										>
+											{props.user.name}
+										</NavLink>
 									</li>
-									<li
-										className="nav-item"
-										style={{ color: "white" }}
-									>
-										Logout
+									<li className="nav-item text-white">
+										<NavLink
+											to="/logout"
+											activeClassName="active"
+											className="nav-link text-white"
+										>
+											Logout
+										</NavLink>
 									</li>
 								</>
 							) : (

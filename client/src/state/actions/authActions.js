@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "http://localhost:3100/api/v1";
+const url = "/api/v1";
 
 const setTokenToAxios = (token) => {
 	axios.defaults.headers.common["authorization"] =

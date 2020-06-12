@@ -62,21 +62,24 @@ class Question extends React.Component {
 				<div className="form-row">
 					<div className="form-group col-md-12">
 						{this.props.isInvalidQuestion ? (
-							<p style={{ background: "red", color: "white" }}>
+							<div class="alert alert-danger" role="alert">
 								Question should have title and all options
 								filled and atleast one correct answer.
-							</p>
+							</div>
 						) : null}
 
 						{!this.props.hideDeleteButton ? (
 							<button
+								button
+								type="button"
+								className="btn btn-warning mr-4 mb-2"
 								onClick={() =>
 									this.props.deleteQuestion(
 										this.props.questionIndex
 									)
 								}
 							>
-								Delete Question
+								Delete
 							</button>
 						) : null}
 
