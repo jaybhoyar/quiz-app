@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "/api/v1";
+const url = "http://localhost:3100/api/v1";
 
 const setTokenToAxios = (token) => {
 	axios.defaults.headers.common["authorization"] =
@@ -26,7 +26,10 @@ const userLogin = (data) => {
 			setTokenToAxios(res.data.token);
 			console.log(res.data, "res.data");
 
-			dispatch({ type: "FETCH_CURRENT_USER_SUCCESS", payload: res.data.user });
+			dispatch({
+				type: "FETCH_CURRENT_USER_SUCCESS",
+				payload: res.data.user,
+			});
 
 			return true;
 		} catch (error) {
