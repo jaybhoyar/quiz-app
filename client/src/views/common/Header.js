@@ -4,10 +4,7 @@ import { connect } from "react-redux";
 function Header(props) {
 	return (
 		<div className="bg-dark ">
-			<div
-				className="container "
-				// style={{ border: "1px solid green" }}
-			>
+			<div className="container">
 				<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 					<a className="navbar-brand font-weight-bold" href="/">
 						Quiz
@@ -77,8 +74,6 @@ function Header(props) {
 }
 
 function mapStateToProps(state) {
-	console.log(state.currentUser.userInfo, "inside stateToProps");
-
 	return {
 		user: state.currentUser.userInfo,
 	};

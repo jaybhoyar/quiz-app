@@ -6,11 +6,12 @@ var quizController = require("../controller/quiz");
 
 // list quizzes
 router.get("/", quizController.listQuizzes);
+
 //create a quiz
 router.post("/", auth.validateJwt, quizController.createQuiz);
 
 //find a quiz
-router.get("/:id", quizController.showQuiz);
+router.get("/:id", auth.validateJwt, quizController.showQuiz);
 
 //update a quiz
 router.put("/:id", auth.validateJwt, quizController.updateQuiz);

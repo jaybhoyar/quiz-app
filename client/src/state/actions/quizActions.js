@@ -23,4 +23,29 @@ const createQuiz = (data) => {
 	};
 };
 
-export { createQuiz };
+const quizList = () => {
+	return async (dispatch) => {
+		try {
+			let quizzes = await axios.get(`${url}/quiz`);
+			dispatch({
+				type: "FETCH_QUIZ_LIST",
+				payload: quizzes.data,
+			});
+		} catch (error) {}
+	};
+};
+
+const fetchQuiz = (id) => {
+	console.log("in action");
+	return async (dispatch) => {
+		try {
+			let quiz = await axios.get(`${url}/quiz/${id}`);
+			dispatch({
+				type: "FETCH_QUIZ",
+				payload: quiz.data.quiz,
+			});
+		} catch (error) {}
+	};
+};
+
+export { createQuiz, quizList, fetchQuiz };

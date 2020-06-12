@@ -1,14 +1,16 @@
 import React from "react";
+import "./assets/stylesheets/main.scss";
 import "bulma/css/bulma.css";
+
 import HomePage from "./views/auth/HomePage";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-
 import CreateQuiz from "./views/quiz/createQuiz";
 import Header from "./views/common/Header";
+import AttemptQuiz from "./views/quiz/attemptQuiz";
 import Login from "./views/auth/login";
 import Signup from "./views/auth/signup";
-import "./assets/stylesheets/main.scss";
+
 import { identifyUser } from "./state/actions/authActions";
 
 function ProtectedRoutes() {
@@ -16,6 +18,7 @@ function ProtectedRoutes() {
 		<Switch>
 			<Route exact path="/" component={HomePage} />
 			<Route path="/quiz/new" component={CreateQuiz} />
+			<Route exact path="/quiz/:id" component={AttemptQuiz} />
 			<Route path="*" render={() => <h1>User already logged in</h1>} />
 		</Switch>
 	);
@@ -25,6 +28,7 @@ function PublicRoutes() {
 	return (
 		<Switch>
 			<Route exact path="/" component={HomePage} />
+
 			<Route path="/login" component={Login} />
 			<Route path="/signup" component={Signup} />
 		</Switch>
