@@ -1,0 +1,31 @@
+ Quiz
+
+{
+  "quiz": {
+    "title": "ABCD",
+    "questions": [{
+      "title": "QuestionTitle",
+      "options": ["a", "b", "c", "d"],
+      "answers": ["a", "c"]
+    },{
+      "title": "QuestionTitle",
+      "options": ["a", "b", "c", "d"],
+      "answers": ["a", "c"]
+    },{
+      "title": "QuestionTitle",
+      "options": ["a", "b", "c", "d"],
+      "answers": ["a", "c"]
+    }]
+  }
+}
+
+ User
+
+{
+  "user": {
+    "name": "test",
+    "username": "test123",
+    "email": "test@gmail.com",
+    "password": "123456"
+  }
+}
