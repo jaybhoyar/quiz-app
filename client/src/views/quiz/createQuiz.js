@@ -1,28 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import Question from "../quiz/createQuestion";
+import QuestionForm from "./QuestionForm";
 import { createQuiz } from "../../state/actions/quizActions";
-
-function isValidQuestion(question) {
-	var status = true;
-	if (
-		question.title &&
-		question.answers &&
-		question.options &&
-		question.answers.length &&
-		question.options.length === 4
-	) {
-		question.answers.forEach((answer) => {
-			if (!question.options.includes(answer)) {
-				status = false;
-			}
-		});
-	} else {
-		status = false;
-	}
-
-	return status;
-}
+import { isValidQuestion } from "../../utils/index";
 
 class CreateQuiz extends React.Component {
 	constructor(props) {
@@ -88,6 +68,9 @@ class CreateQuiz extends React.Component {
 
 		// make a dispatch.
 		this.props.dispatch(createQuiz({ quiz }));
+		if (!this.state.errorMsg) {
+			this.props.history.push("/");
+		}
 	};
 
 	deleteQuestion = (index) => {
@@ -127,7 +110,7 @@ class CreateQuiz extends React.Component {
 					{this.state.questions.length ? (
 						this.state.questions.map((question, i) => {
 							return (
-								<Question
+								<QuestionForm
 									key={i}
 									questionIndex={i}
 									question={question}

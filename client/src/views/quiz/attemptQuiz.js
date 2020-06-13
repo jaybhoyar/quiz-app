@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchQuiz } from "../../state/actions/quizActions";
+import { showQuiz } from "../../state/actions/quizActions";
 
 class AttemptQuiz extends Component {
 	constructor(props) {
@@ -8,7 +8,7 @@ class AttemptQuiz extends Component {
 	}
 	componentDidMount() {
 		console.log(this.props.match.params.id);
-		this.props.dispatch(fetchQuiz(this.props.match.params.id));
+		this.props.dispatch(showQuiz(this.props.match.params.id));
 	}
 	render() {
 		var questions = this.props.quiz.questions;
@@ -69,9 +69,8 @@ class AttemptQuiz extends Component {
 		);
 	}
 }
-function mapStateToProps({ quizReducer }) {
-	console.log(quizReducer.quiz);
-	return { quiz: quizReducer.quiz };
+function mapStateToProps({ quiz }) {
+	return { quiz: quiz.quiz };
 }
 
 export default connect(mapStateToProps)(AttemptQuiz);

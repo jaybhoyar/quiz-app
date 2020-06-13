@@ -9,6 +9,16 @@ function Quiz(state = intialState, action) {
 			return { ...state, quizList: action.payload };
 		case "FETCH_QUIZ":
 			return { ...state, quiz: action.payload };
+		case "DELETE_QUIZ":
+			return {
+				...state,
+				quizList: {
+					...state.quizList,
+					quizzes: state.quizList.quizzes.filter(
+						(quiz) => quiz._id !== action.payload
+					),
+				},
+			};
 		default:
 			return state;
 	}

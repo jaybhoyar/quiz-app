@@ -35,8 +35,8 @@ const quizList = () => {
 	};
 };
 
-const fetchQuiz = (id) => {
-	console.log("in action");
+const showQuiz = (id) => {
+	// console.log("in action");
 	return async (dispatch) => {
 		try {
 			let quiz = await axios.get(`${url}/quiz/${id}`);
@@ -48,4 +48,32 @@ const fetchQuiz = (id) => {
 	};
 };
 
-export { createQuiz, quizList, fetchQuiz };
+const updateQuestion = (id, data) => {
+	return async (dispatch) => {
+		try {
+			// dispatch({ type: "FETCH_CURRENT_USER_START" });
+
+			let quiz = await axios.put(`${url}/questions/${id}`, data);
+
+			// dispatch({
+			//   // type: "FETCH_CURRENT_USER_SUCCESS",
+			//   payload: user.data.user,
+			// });
+		} catch (error) {}
+	};
+};
+
+const deleteQuiz = (id) => {
+	// console.log("in action");
+	return async (dispatch) => {
+		try {
+			await axios.delete(`${url}/quiz/${id}`);
+			dispatch({
+				type: "DELETE_QUIZ",
+				payload: id,
+			});
+		} catch (error) {}
+	};
+};
+
+export { createQuiz, quizList, showQuiz, deleteQuiz, updateQuestion };
