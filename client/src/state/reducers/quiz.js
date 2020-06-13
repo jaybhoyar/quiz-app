@@ -1,6 +1,7 @@
 var intialState = {
 	quizList: [],
 	quiz: "",
+	result: "",
 };
 
 function Quiz(state = intialState, action) {
@@ -18,6 +19,11 @@ function Quiz(state = intialState, action) {
 						(quiz) => quiz._id !== action.payload
 					),
 				},
+			};
+		case "ATTEMPT_QUIZ":
+			return {
+				...state,
+				result: action.payload,
 			};
 		default:
 			return state;

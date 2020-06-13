@@ -87,8 +87,7 @@ class EditQuiz extends Component {
 																</p>
 															) : null}
 															<h4>
-																{" "}
-																Q:{" "}
+																Q:
 																{question.title}
 															</h4>
 															<div className="row">

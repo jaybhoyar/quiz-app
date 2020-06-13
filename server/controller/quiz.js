@@ -159,7 +159,6 @@ module.exports = {
 
 			var attemptedQuestions = quiz.questions.map((question, i) => {
 				var index = serializedQuestionIds.indexOf(String(question._id));
-
 				return {
 					questionId: question._id,
 					answers: index == -1 ? [] : questions[index].answers,

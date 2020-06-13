@@ -36,7 +36,6 @@ const quizList = () => {
 };
 
 const showQuiz = (id) => {
-	// console.log("in action");
 	return async (dispatch) => {
 		try {
 			let quiz = await axios.get(`${url}/quiz/${id}`);
@@ -64,7 +63,6 @@ const updateQuestion = (id, data) => {
 };
 
 const deleteQuiz = (id) => {
-	// console.log("in action");
 	return async (dispatch) => {
 		try {
 			await axios.delete(`${url}/quiz/${id}`);
@@ -76,4 +74,27 @@ const deleteQuiz = (id) => {
 	};
 };
 
-export { createQuiz, quizList, showQuiz, deleteQuiz, updateQuestion };
+const attemptQuiz = (attempt) => {
+	return async (dispatch) => {
+		try {
+			var quizResult = await axios.post(
+				`${url}/quiz/${attempt.quizId}/attempt`,
+				attempt
+			);
+			console.log(quizResult);
+			dispatch({
+				type: "ATTEMPT_QUIZ",
+				payload: quizResult.data,
+			});
+		} catch (error) {}
+	};
+};
+
+export {
+	createQuiz,
+	quizList,
+	showQuiz,
+	deleteQuiz,
+	updateQuestion,
+	attemptQuiz,
+};
