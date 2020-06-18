@@ -49,7 +49,6 @@ class AttemptQuiz extends Component {
 	};
 
 	handleSubmitQuiz = () => {
-		console.log("in submit");
 		var attempt;
 		attempt = {
 			quizId: this.props.match.params.id,
