@@ -18,7 +18,7 @@
 	border-radius: 1em;
 	box-shadow: 0 0 2em rgba(0, 0, 0, 0.125);
 	overflow: hidden;
-	@include transition--smooth;
+	// @include transition--smooth;
 
 	&:hover {
 		transform: translateY(-0.5em);
@@ -79,7 +79,7 @@
 			display: inline-block;
 			margin-right: 1em;
 			font-size: 1.125rem;
-			@include transition--smooth;
+			// @include transition--smooth;
 
 			a {
 				color: #424242;
